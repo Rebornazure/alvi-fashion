@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { categories } from "@/data/categories";
 import { siteConfig } from "@/data/site";
 import { getMapsUrl } from "@/lib/utils";
+import { GoogleMapsIcon, InstagramIcon, ShopeeIcon, TikTokIcon } from "@/components/SocialIcons";
 
 const socials = [
-  { label: "Instagram", url: siteConfig.instagram },
-  { label: "TikTok", url: siteConfig.tiktok },
-  { label: "Shopee", url: siteConfig.shopee },
+  { label: "Instagram", url: siteConfig.instagram, Icon: InstagramIcon },
+  { label: "TikTok", url: siteConfig.tiktok, Icon: TikTokIcon },
+  { label: "Shopee", url: siteConfig.shopee, Icon: ShopeeIcon },
 ];
 
 export default function Footer() {
@@ -20,9 +19,19 @@ export default function Footer() {
             <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-white/70">
               Fashion sederhana untuk gaya sehari-hari.
             </p>
+            <a
+              href={getMapsUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Lihat lokasi di Google Maps"
+              className="mt-6 grid size-11 place-items-center rounded-full bg-white transition-transform duration-200 hover:scale-105"
+            >
+              <GoogleMapsIcon className="size-6" />
+              <span className="sr-only">Lihat lokasi toko di Google Maps (buka di tab baru)</span>
+            </a>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 md:col-span-4 md:col-start-5">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 md:col-span-5 md:col-start-8">
             <div>
               <h2 className="font-sans text-sm font-semibold tracking-normal text-white">Jelajahi</h2>
               <ul className="mt-4 space-y-1 text-[15px] text-white/75">
@@ -42,24 +51,27 @@ export default function Footer() {
             </div>
             <div>
               <h2 className="font-sans text-sm font-semibold tracking-normal text-white">Sosial</h2>
-              <ul className="mt-4 space-y-1 text-[15px] text-white/75">
-                {socials.map((s) => (
-                  <li key={s.label}>
-                    {s.url ? (
+              <ul className="mt-4 flex items-center gap-3">
+                {socials.map(({ label, url, Icon }) => (
+                  <li key={label}>
+                    {url ? (
                       <a
-                        href={s.url}
+                        href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex min-h-9 items-center gap-1 hover:text-white"
+                        title={label}
+                        className="grid size-11 place-items-center rounded-full border border-white/30 text-white transition-colors duration-200 hover:bg-white hover:text-ink"
                       >
-                        {s.label}
-                        <ArrowUpRight className="size-3.5" aria-hidden />
-                        <span className="sr-only">(buka di tab baru)</span>
+                        <Icon className="size-5" />
+                        <span className="sr-only">{label} (buka di tab baru)</span>
                       </a>
                     ) : (
-                      <span className="inline-flex min-h-9 items-center gap-2 text-white/55">
-                        {s.label}
-                        <span className="text-xs">segera hadir</span>
+                      <span
+                        title={`${label} — segera hadir`}
+                        className="grid size-11 place-items-center rounded-full border border-white/25 text-white/70"
+                      >
+                        <Icon className="size-5" />
+                        <span className="sr-only">{label} — segera hadir</span>
                       </span>
                     )}
                   </li>
@@ -68,33 +80,10 @@ export default function Footer() {
             </div>
           </nav>
 
-          <div className="md:col-span-3 md:col-start-10">
-            <h2 className="font-sans text-sm font-semibold tracking-normal text-white">Lokasi toko</h2>
-            <address className="mt-4 text-[15px] not-italic leading-relaxed text-white/75">
-              {siteConfig.address.lines.slice(0, 5).map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </address>
-            <a
-              href={getMapsUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline mt-4 inline-flex items-center gap-1 text-sm font-medium"
-            >
-              Lihat di Google Maps
-              <ArrowUpRight className="size-3.5" aria-hidden />
-              <span className="sr-only">(buka di tab baru)</span>
-            </a>
-          </div>
         </div>
 
         <div className="mt-16 flex flex-col gap-3 border-t border-white/15 pt-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
           <p>© 2026 ALVI FASHION. All rights reserved.</p>
-          {siteConfig.showDemoNotice && (
-            <p>Produk, harga, dan foto di website ini masih data demo.</p>
-          )}
         </div>
       </div>
     </footer>

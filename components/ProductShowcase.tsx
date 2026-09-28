@@ -27,7 +27,13 @@ export default function ProductShowcase() {
 
         <div className="md:col-span-5 md:pb-2">
           <ScrollReveal>
-            <p className="text-sm text-white/70">Sorotan koleksi</p>
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/30 px-3.5 py-1.5 text-sm font-medium text-white">
+                <span aria-hidden className="size-1.5 rounded-full bg-[#D9B98A]" />
+                Product Launch
+              </span>
+              <span className="text-sm text-white/65">Produk baru keluar</span>
+            </p>
             <h2 id="showcase-heading" className="mt-3 text-[2.4rem] md:text-6xl">
               {product.name}
             </h2>

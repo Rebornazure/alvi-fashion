@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import AboutSection from "@/components/AboutSection";
 import BestSellers from "@/components/BestSellers";
 import CategorySection from "@/components/CategorySection";
-import CTASection from "@/components/CTASection";
 import FeaturedProduct from "@/components/FeaturedProduct";
 import Hero from "@/components/Hero";
-import LocationSection from "@/components/LocationSection";
 import NewArrivals from "@/components/NewArrivals";
 import ProductShowcase from "@/components/ProductShowcase";
 import PromoBanner from "@/components/PromoBanner";
@@ -28,8 +26,6 @@ export default function HomePage() {
       <PromoBanner />
       <AboutSection />
       <ProductShowcase />
-      <LocationSection />
-      <CTASection />
     </>
   );
 }

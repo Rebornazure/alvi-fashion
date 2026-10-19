@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronDown, Star } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
+import GoogleReviews from "@/components/GoogleReviews";
 import ProductGallery from "@/components/ProductGallery";
 import ProductGrid from "@/components/ProductGrid";
 import PurchasePanel from "@/components/PurchasePanel";
@@ -170,6 +171,8 @@ export default async function ProductPage({ params }: Props) {
           <ProductGrid products={related} />
         </section>
       )}
+
+      <GoogleReviews />
 
       {jsonLd && (
         <script

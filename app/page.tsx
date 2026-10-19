@@ -3,6 +3,7 @@ import AboutSection from "@/components/AboutSection";
 import BestSellers from "@/components/BestSellers";
 import CategorySection from "@/components/CategorySection";
 import FeaturedProduct from "@/components/FeaturedProduct";
+import GoogleReviews from "@/components/GoogleReviews";
 import Hero from "@/components/Hero";
 import NewArrivals from "@/components/NewArrivals";
 import ProductShowcase from "@/components/ProductShowcase";
@@ -26,6 +27,7 @@ export default function HomePage() {
       <PromoBanner />
       <AboutSection />
       <ProductShowcase />
+      <GoogleReviews />
     </>
   );
 }

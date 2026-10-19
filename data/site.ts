@@ -22,6 +22,12 @@ export interface SiteConfig {
   shippingInfo: string;
   returnPolicy: string;
   showDemoNotice: boolean;
+  googleRating: {
+    rating: number;
+    reviewCount: number;
+    placeId: string;
+    reviews: { text: string; author?: string }[];
+  };
 }
 
 export const siteConfig: SiteConfig = {
@@ -50,7 +56,7 @@ export const siteConfig: SiteConfig = {
   whatsappNumber: "6285745820429",
   phone: "6285745820429",
   email: "",
-  instagram: "", // contoh: "https://instagram.com/namaakun"
+  instagram: "https://www.instagram.com/alvifashion?utm_source=ig_web_button_share_sheet&cplk=ZDNlZDc0MzIxNw==", // contoh: "https://instagram.com/namaakun"
   tiktok: "", // contoh: "https://tiktok.com/@namaakun"
   shopee: "", // contoh: "https://shopee.co.id/namatoko"
 
@@ -67,6 +73,17 @@ export const siteConfig: SiteConfig = {
   /** Info pengiriman & retur. Kosongkan jika belum ada; halaman akan menampilkan "Segera diperbarui". */
   shippingInfo: "",
   returnPolicy: "",
+
+  googleRating: {
+    rating: 5.0,
+    reviewCount: 1,
+    placeId: "ChIJYVop1t3FcC4RQKxnkbgfl88",
+    reviews: [
+      {
+        text: "The cheapest clothing store with pretty good quality",
+      },
+    ],
+  },
 
   /**
    * Selama produk masih data demo, website menampilkan label "Demo".
